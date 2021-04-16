@@ -1,5 +1,5 @@
 #define SWITCH_PRESSED() ((PINC & (1<<PC3)) == 0)
-
+#define REED() (PINB)
 void init_peri();
 void set_led(uint8_t pin, uint8_t state);
 void set_led_value(uint8_t value);

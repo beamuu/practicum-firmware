@@ -10,6 +10,7 @@
 #define RQ_SET_LED_VALUE   1
 #define RQ_GET_SWITCH      2
 #define RQ_GET_LIGHT       3
+#define RQ_GET_REED        4
 
 /* ------------------------------------------------------------------------- */
 /* ----------------------------- USB interface ----------------------------- */
@@ -21,7 +22,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     /* declared as static so they stay valid when usbFunctionSetup returns */
     static uint8_t switch_state;  
     static uint16_t light_value;
-
+    static uint8_t reed_id;
     if (rq->bRequest == RQ_SET_LED)
     {
         uint8_t led_val = rq->wValue.bytes[0];
@@ -48,11 +49,17 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
         return 1;
     }
 
-    else if (rq->bRequest == RQ_GET_)
+    // else if (rq->bRequest == RQ_GET_)
+    // {
+    //     light_value = read_adc(PC4);
+    //     usbMsgPtr = (uchar*) &light_value;
+    //     return sizeof(light_value);
+    // }
+    else if (rq->bRequest == RQ_GET_REED)
     {
-        light_value = read_adc(PC4);
-        usbMsgPtr = (uchar*) &light_value;
-        return sizeof(light_value);
+        reed_id = REED();
+        usbMsgPtr = &reed_id;
+        return 1;
     }
 
     /* default for not implemented requests: return no data back to host */

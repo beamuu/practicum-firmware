@@ -99,6 +99,7 @@ class PeriBoard:
         '''
         low,high = self.mcu.usb_read(RQ_GET_LIGHT, 2)
         return low+high*256
-    def getReedId(self):
-        state = self.mcu.usb_read(request=REQ_GET_REED,length=1)
+
+    def get_reed_id(self):
+        state = self.mcu.usb_read(request=RQ_GET_REED,length=1)
         return state[0]
