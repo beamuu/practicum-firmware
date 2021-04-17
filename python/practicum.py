@@ -10,6 +10,16 @@ RQ_GET_REED1     = 5
 RQ_GET_REED2     = 6
 RQ_GET_REED3     = 7
 
+RQ_BUZZER_ON     = 8
+RQ_BUZZER_OFF    = 9
+
+RQ_LED_RED_ON    = 10
+RQ_LED_RED_OFF   = 11
+
+RQ_LED_GREEN_ON  = 12
+RQ_LED_GREEN_OFF = 13
+RQ_CHECK_CARD    = 14
+
 
 ####################################
 def find_mcu_boards():
@@ -106,15 +116,38 @@ class PeriBoard:
         return low+high*256
     
     ################################
-    def reed_0(self):
+    def reed0(self):
         state = self.mcu.usb_read(request=RQ_GET_REED0,length=1)
         return state[0]
-    def reed_1(self):
+    def reed1(self):
         state = self.mcu.usb_read(request=RQ_GET_REED1,length=1)
         return state[0]
-    def reed_2(self):
+    def reed2(self):
         state = self.mcu.usb_read(request=RQ_GET_REED2,length=1)
         return state[0]
-    def reed_3(self):
+    def reed3(self):
         state = self.mcu.usb_read(request=RQ_GET_REED3,length=1)
+        return state[0]
+    
+    ################################
+    def buzzer_on(self):
+        self.mcu.usb_write(RQ_BUZZER_ON)
+    def buzzer_off(self):
+        self.mcu.usb_write(RQ_BUZZER_OFF)
+    
+    ################################
+    def led_on_green(self):
+        self.mcu.usb_write(RQ_LED_GREEN_ON)
+    def led_off_green(self):
+        self.mcu.usb_write(RQ_LED_GREEN_OFF)
+    
+    ################################
+    def led_on_red(self):
+        self.mcu.usb_write(RQ_LED_RED_ON)
+    def led_off_red(self):
+        self.mcu.usb_write(RQ_LED_RED_OFF)
+
+    ################################
+    def check_card(self):
+        state = self.mcu.usb_read(request=RQ_CHECK_CARD,length=1)
         return state[0]

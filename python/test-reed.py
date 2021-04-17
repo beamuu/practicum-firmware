@@ -13,9 +13,25 @@ peri = PeriBoard(mcu)
 
 
 while True:
-    reed_state_0 = peri.reed_0()
-    reed_state_1 = peri.reed_1()
-    reed_state_2 = peri.reed_2()
-    reed_state_3 = peri.reed_3()
-    print(f"{reed_state_0} {reed_state_1} {reed_state_2} {reed_state_3}")
-    time.sleep(1)
+
+    r0 = peri.reed_0()          # read REED 0
+    r1 = peri.reed_1()          # read REED 1
+    r2 = peri.reed_2()          # read REED 2
+    r3 = peri.reed_3()          # read REED 3
+    card = peri.check_card()    # check if card placed
+    print(f"{r0} {r1} {r2} {r3} => card: {card}")
+
+    if (r1 or r2 or r3 or r4):
+        peri.buzzer_on()
+
+        peri.led_off_red()
+        peri.led_on_green()
+
+        time.sleep(0.2)
+        peri.buzzer_off()
+
+    else:
+        peri.led_off_green()
+        peri.on_red()
+    time.sleep(0.4)
+
