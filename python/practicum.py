@@ -4,6 +4,7 @@ RQ_SET_LED       = 0
 RQ_SET_LED_VALUE = 1
 RQ_GET_SWITCH    = 2
 RQ_GET_LIGHT     = 3
+
 RQ_GET_REED0     = 4
 RQ_GET_REED1     = 5
 RQ_GET_REED2     = 6

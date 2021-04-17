@@ -26,7 +26,10 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     /* declared as static so they stay valid when usbFunctionSetup returns */
     static uint8_t switch_state;  
     static uint16_t light_value;
-    static uint8_t reed_id;
+    static uint8_t reed_id0;
+    static uint8_t reed_id1;
+    static uint8_t reed_id2;
+    static uint8_t reed_id3;
     if (rq->bRequest == RQ_SET_LED)
     {
         uint8_t led_val = rq->wValue.bytes[0];
@@ -62,25 +65,25 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     else if (rq->bRequest == RQ_GET_REED0)
     {
         reed_id = REED0();
-        usbMsgPtr = &reed_id;
+        usbMsgPtr = &reed_id0;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED1)
     {
         reed_id = REED1();
-        usbMsgPtr = &reed_id;
+        usbMsgPtr = &reed_id1;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED2)
     {
         reed_id = REED2();
-        usbMsgPtr = &reed_id;
+        usbMsgPtr = &reed_id2;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED3)
     {
         reed_id = REED3();
-        usbMsgPtr = &reed_id;
+        usbMsgPtr = &reed_id3;
         return 1;
     }
 
