@@ -10,6 +10,11 @@ void init_peri() {
   PORTC |= (1<<PC3);
 }
 
+void init_peri_for_test() {
+    DDRC &= ~((1<<PC0)|(1<<PC1)|(1<<PC2)|(1<<PC3));
+}
+
+
 void set_led_value(uint8_t value) {
   PORTC &= ~(0b11);
   PORTC |= (value & 0b11);

@@ -16,6 +16,7 @@ void init_peri()
     set_led_value(0);
 }
 
+
 void set_led(uint8_t pin, uint8_t state)
 {
     if (pin > 2) return;
