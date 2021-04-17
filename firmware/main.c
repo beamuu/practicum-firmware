@@ -10,7 +10,11 @@
 #define RQ_SET_LED_VALUE   1
 #define RQ_GET_SWITCH      2
 #define RQ_GET_LIGHT       3
-#define RQ_GET_REED        4
+
+#define RQ_GET_REED0       4
+#define RQ_GET_REED1       5
+#define RQ_GET_REED2       6
+#define RQ_GET_REED3       7
 
 /* ------------------------------------------------------------------------- */
 /* ----------------------------- USB interface ----------------------------- */
@@ -55,9 +59,27 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     //     usbMsgPtr = (uchar*) &light_value;
     //     return sizeof(light_value);
     // }
-    else if (rq->bRequest == RQ_GET_REED)
+    else if (rq->bRequest == RQ_GET_REED0)
     {
-        reed_id = REED();
+        reed_id = REED0();
+        usbMsgPtr = &reed_id;
+        return 1;
+    }
+    else if (rq->bRequest == RQ_GET_REED1)
+    {
+        reed_id = REED1();
+        usbMsgPtr = &reed_id;
+        return 1;
+    }
+    else if (rq->bRequest == RQ_GET_REED2)
+    {
+        reed_id = REED2();
+        usbMsgPtr = &reed_id;
+        return 1;
+    }
+    else if (rq->bRequest == RQ_GET_REED3)
+    {
+        reed_id = REED3();
         usbMsgPtr = &reed_id;
         return 1;
     }
