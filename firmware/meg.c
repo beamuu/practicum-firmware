@@ -9,7 +9,7 @@ void init_peri() {
     //   DDRC &= ~((1<<PC3)|(1<<PC4));
 
 //   PORTC |= (1<<PC3);
-
+ 
     // for test only
     DDRC &= ~((1<<PC0)|(1<<PC1)|(1<<PC2)|(1<<PC3));
 }
