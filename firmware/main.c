@@ -3,7 +3,7 @@
 #include <util/delay.h>     /* for _delay_ms() */
 #include <avr/pgmspace.h>   /* required by usbdrv.h */
 
-#include "peri.h"
+#include "meg.h"
 #include "usbdrv.h"
 
 #define RQ_SET_LED         0
