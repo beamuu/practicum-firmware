@@ -64,25 +64,25 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     // }
     else if (rq->bRequest == RQ_GET_REED0)
     {
-        reed_id = REED0();
+        reed_id0 = REED0();
         usbMsgPtr = &reed_id0;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED1)
     {
-        reed_id = REED1();
+        reed_id1 = REED1();
         usbMsgPtr = &reed_id1;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED2)
     {
-        reed_id = REED2();
+        reed_id2 = REED2();
         usbMsgPtr = &reed_id2;
         return 1;
     }
     else if (rq->bRequest == RQ_GET_REED3)
     {
-        reed_id = REED3();
+        reed_id3 = REED3();
         usbMsgPtr = &reed_id3;
         return 1;
     }
