@@ -69,8 +69,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
 /* ------------------------------------------------------------------------- */
 int main(void)
 {
-    // init_peri();
-    init_peri_for_test();
+    init_peri();
     usbInit();
 
     /* enforce re-enumeration, do this while interrupts are disabled! */

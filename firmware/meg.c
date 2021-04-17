@@ -2,17 +2,19 @@
 #include "meg.h"
 
 void init_peri() {
-  // PC0..PC2 -> output
-  // PC3,PC4 -> input
-  DDRC |= (1<<PC2) | (1<<PC1) | (1<<PC0);
-  DDRC &= ~((1<<PC3)|(1<<PC4));
+    // PC0..PC2 -> output
+    // PC3,PC4 -> input
 
-  PORTC |= (1<<PC3);
-}
+    //   DDRC |= (1<<PC2) | (1<<PC1) | (1<<PC0);
+    //   DDRC &= ~((1<<PC3)|(1<<PC4));
 
-void init_peri_for_test() {
+//   PORTC |= (1<<PC3);
+
+    // for test only
     DDRC &= ~((1<<PC0)|(1<<PC1)|(1<<PC2)|(1<<PC3));
 }
+
+
 
 
 void set_led_value(uint8_t value) {
