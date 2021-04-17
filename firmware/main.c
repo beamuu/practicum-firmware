@@ -76,7 +76,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     }
     else if (rq->bRequest == RQ_GET_REED2)
     {
-        reed_id2 = REED2();
+        reed_id2 = 1;
         usbMsgPtr = &reed_id2;
         return 1;
     }
