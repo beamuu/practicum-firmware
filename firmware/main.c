@@ -27,7 +27,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
     {
         uint8_t led_val = rq->wValue.bytes[0];
         uint8_t led_no  = rq->wIndex.bytes[0];
-        set_led(led_no, led_val);
+        //set_led(led_no, led_val);
         return 0;
     }
 
@@ -40,7 +40,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
 
     else if (rq->bRequest == RQ_GET_SWITCH)
     {
-        switch_state = SWITCH_PRESSED();
+        //switch_state = SWITCH_PRESSED();
 
         /* point usbMsgPtr to the data to be returned to host */
         usbMsgPtr = &switch_state;
