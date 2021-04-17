@@ -13,6 +13,9 @@ peri = PeriBoard(mcu)
 
 
 while True:
-    reed_state = peri.get_reed_id()
-    print(reed_state)
+    reed_state_0 = peri.reed_0()
+    reed_state_1 = peri.reed_1()
+    reed_state_2 = peri.reed_2()
+    reed_state_3 = peri.reed_3()
+    print(f"{reed_state_0} {reed_state_1} {reed_state_2} {reed_state_3}")
     time.sleep(1)

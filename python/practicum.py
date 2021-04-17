@@ -4,7 +4,11 @@ RQ_SET_LED       = 0
 RQ_SET_LED_VALUE = 1
 RQ_GET_SWITCH    = 2
 RQ_GET_LIGHT     = 3
-RQ_GET_REED      = 4
+RQ_GET_REED0     = 4
+RQ_GET_REED1     = 5
+RQ_GET_REED2     = 6
+RQ_GET_REED3     = 7
+
 
 ####################################
 def find_mcu_boards():
@@ -101,6 +105,15 @@ class PeriBoard:
         return low+high*256
     
     ################################
-    def get_reed_id(self):
-        state = self.mcu.usb_read(request=RQ_GET_REED,length=1)
+    def reed_0(self):
+        state = self.mcu.usb_read(request=RQ_GET_REED0,length=1)
+        return state[0]
+    def reed_1(self):
+        state = self.mcu.usb_read(request=RQ_GET_REED1,length=1)
+        return state[0]
+    def reed_2(self):
+        state = self.mcu.usb_read(request=RQ_GET_REED2,length=1)
+        return state[0]
+    def reed_3(self):
+        state = self.mcu.usb_read(request=RQ_GET_REED3,length=1)
         return state[0]
