@@ -8,7 +8,7 @@ Academic Year 2020
 
 - website details:  https://practicum-po.herokuapp.com/about
 
-created by **Po the Dragon Warrior** group (โปนักมังกร)
+created by **Po the Dragon Warrior** group (โปนักรบมังกร)
 - Chalanthorn Aenguthaivadt `6210503527`
 - Nutchanon Chantrasup `6210503578`
 - Napasin Saengthong `6210503641`
